@@ -1,6 +1,7 @@
 import {Column, Entity, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 import { Product } from "./Product.entity";
 
+
 @Entity("subtype")
 export class Subtype {
   @PrimaryGeneratedColumn()
