@@ -9,10 +9,15 @@ import {UsersModule} from "./users/users.module";
 import { ProductsController } from './products/products.controller';
 import { ProductsService } from './products/products.service';
 import {ProductsModule} from "./products/products.module";
+import { OrdersController } from './orders/orders.controller';
+import { OrdersService } from './orders/orders.service';
+import {OrdersModule} from "./orders/orders.module";
+import { OrderitemsController } from './orderitems/orderitems.controller';
+import { OrderitemsService } from './orderitems/orderitems.service';
+import {OrdersitemsModule} from "./orderitems/orderitems.module";
 
 @Module({
-  imports: [TypeOrmModule.forRoot(), TypesModule, SubTypesModule, UsersModule, ProductsModule]
-
+  imports: [TypeOrmModule.forRoot(), TypesModule, SubTypesModule, UsersModule, ProductsModule, OrdersModule, OrdersitemsModule]
 })
 export class AppModule {
   constructor(private connection: Connection) {}

@@ -9,18 +9,19 @@ import {
 } from "typeorm";
 import { User } from "./User.entity";
 import { Orderitem } from "./Orderitem.entity";
+import {IsNumber, IsString} from "class-validator"
 
-// @Index("orderId", ["orderId"], {})
-// @Index("userId", ["userId"], {})
 @Entity("order")
 export class Order {
   @PrimaryGeneratedColumn()
   orderId: number;
 
-  @Column("date", )
+  @Column("date")
+  @IsString()
   orderDate: string;
 
   @Column("double")
+  @IsNumber()
   orderAmount: number;
 
   @ManyToOne(() => User, (user) => user.orders )
