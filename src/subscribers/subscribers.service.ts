@@ -2,6 +2,8 @@ import {HttpException, HttpStatus, Injectable} from '@nestjs/common';
 import {InjectRepository} from "@nestjs/typeorm";
 import {Repository} from "typeorm";
 import {Subscriber} from "../entities/Subscriber.entity";
+const nodemailer = require('nodemailer')
+
 
 @Injectable()
 export class SubscribersService {
@@ -67,4 +69,42 @@ export class SubscribersService {
                 HttpStatus.BAD_REQUEST
             );
         }
-    }}
+    }
+
+    async EmailSend() :Promise<string>{
+        var subscribers: Subscriber[] = await this.subscribersRepository.find();
+        let transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: 'planart.test@gmail.com',
+                pass: 'Lozinka12.'
+            }
+        })
+
+        var mailOptions = {
+            from: 'planart.test@gmail.com',
+            to: '',
+            subject: 'Sending mails testing',
+            text: "It works??"
+        }
+
+        subscribers.forEach(element => {
+            if (mailOptions.to == ''){
+                mailOptions.to = element.email;
+            }
+            else{
+                mailOptions.to =mailOptions.to + ","+ element.email
+            }
+        })
+
+        transporter.sendMail(mailOptions, function(err,data){
+            if(err){
+                return "Error"
+            }
+            else {
+                return "email sent"
+            }
+        })
+        return "asd";
+    }
+}
