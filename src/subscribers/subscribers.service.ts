@@ -85,7 +85,7 @@ export class SubscribersService {
             from: 'planart.test@gmail.com',
             to: '',
             subject: 'Sending mails testing',
-            text: "It works??"
+            html: "<b>Hello world?</b>"
         }
 
         subscribers.forEach(element => {
