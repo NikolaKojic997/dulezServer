@@ -15,9 +15,20 @@ import {OrdersModule} from "./orders/orders.module";
 import { OrderitemsController } from './orderitems/orderitems.controller';
 import { OrderitemsService } from './orderitems/orderitems.service';
 import {OrdersitemsModule} from "./orderitems/orderitems.module";
+import { SubscribersController } from './subscribers/subscribers.controller';
+import { SubscribersService } from './subscribers/subscribers.service';
+import {SubscribersModule} from "./subscribers/subscribers.module";
 
 @Module({
-  imports: [TypeOrmModule.forRoot(), TypesModule, SubTypesModule, UsersModule, ProductsModule, OrdersModule, OrdersitemsModule]
+  imports: [TypeOrmModule.forRoot(),
+            TypesModule,
+            SubTypesModule,
+            UsersModule,
+            ProductsModule,
+            OrdersModule,
+            OrdersitemsModule,
+            SubscribersModule],
+
 })
 export class AppModule {
   constructor(private connection: Connection) {}

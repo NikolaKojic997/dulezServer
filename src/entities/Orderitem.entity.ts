@@ -1,6 +1,7 @@
 import { Column, Entity, Index, JoinColumn, ManyToOne } from "typeorm";
 import { Order } from "./Order.entity";
 import { Product } from "./Product.entity";
+import {IsInt} from "class-validator"
 
 // @Index("orderId", ["orderId"], {})
 // @Index("productID", ["productId"], {})
@@ -13,6 +14,7 @@ export class Orderitem {
   orderId: number;
 
   @Column()
+  @IsInt()
   quantity: number | null;
 
 
