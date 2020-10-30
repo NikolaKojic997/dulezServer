@@ -18,6 +18,12 @@ import {OrdersitemsModule} from "./orderitems/orderitems.module";
 import { SubscribersController } from './subscribers/subscribers.controller';
 import { SubscribersService } from './subscribers/subscribers.service';
 import {SubscribersModule} from "./subscribers/subscribers.module";
+import { BlogsController } from './blogs/blogs.controller';
+import { BlogsService } from './blogs/blogs.service';
+import { CommentsController } from './comments/comments.controller';
+import { CommentsService } from './comments/comments.service';
+import {BlogsModule} from "./blogs/blogs.module";
+import {CommentsModule} from "./comments/comments.module";
 
 @Module({
   imports: [TypeOrmModule.forRoot(),
@@ -27,7 +33,12 @@ import {SubscribersModule} from "./subscribers/subscribers.module";
             ProductsModule,
             OrdersModule,
             OrdersitemsModule,
-            SubscribersModule],
+            SubscribersModule,
+            BlogsModule,
+            CommentsModule],
+
+  controllers: [],
+  providers: [],
 
 })
 export class AppModule {
