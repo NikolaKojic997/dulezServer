@@ -8,9 +8,11 @@ export class Blog {
 
     @PrimaryGeneratedColumn()
     blogId: number;
+    @Column()
     @IsDate()
     date: Date;
     @IsString()
+    @Column()
     title: string;
     @Column("text")
     @IsString()

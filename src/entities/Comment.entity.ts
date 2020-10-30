@@ -10,9 +10,11 @@ export class Comment{
 
     @IsString()
     @IsEmail()
+    @Column()
     email: string;
 
     @IsString()
+    @Column()
     username: string;
 
     @Column('text')
@@ -20,6 +22,7 @@ export class Comment{
     commentText: string;
 
     @IsDate()
+    @Column()
     date: Date;
 
     @ManyToOne(() => Blog, (blog) => blog.comments)
